@@ -10,6 +10,59 @@
       href="/img-and-icons/pwdGeneretor-icon-48.png"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="displayPasswordBox common-box">
+        <form id="generated-pwd-form">
+          <input
+            type="text"
+            name="Genereted-Password"
+            id="generated-pwd"
+            class="generated-pwd-style"
+          />
+        </form>
+      </div>
+      <div class="choosePasswordBox common-box">
+        <h2>Customise your Password</h2>
+        <hr />
+        <div class="customise-pwd">
+          <form id="customise-pwd-form">
+            <div class="box-1">
+              <input type="number" name="pwd-length" id="pwd-length" /> Password
+              Length
+            </div>
+            <div class="box-2">
+              <input
+                type="checkbox"
+                name="alphabetic"
+                id="alphabetic"
+                class="check-box"
+              />
+              Alphabetic
+            </div>
+            <div class="box-3">
+              <input
+                type="checkbox"
+                name="alphanumeric"
+                id="alphanumeric"
+                class="check-box"
+              />
+              Alphanumeric
+            </div>
+            <div class="box-4">
+              <input
+                type="checkbox"
+                name="All Characters"
+                id="all-characters"
+                class="check-box"
+              />
+              All Characters
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
