@@ -17,11 +17,26 @@
       <div class="displayPasswordBox common-box">
         <form id="generated-pwd-form">
           <input
+            value
+            autocomplete="off"
+            spellcheck="false"
             type="text"
             name="Genereted-Password"
             id="generated-pwd"
             class="generated-pwd-style"
           />
+          <!-- <button class="generated-pwd-button">
+            <img
+              src="/img-and-icons/copy to clipboard-48.png"
+              alt="Copy to Clipboard"
+            />
+          </button>
+          <button class="generated-pwd-button">
+            <img
+              src="/img-and-icons/password-reset-48.png"
+              alt="Reload New Password"
+            />
+          </button> -->
         </form>
       </div>
       <div class="choosePasswordBox common-box">
@@ -30,8 +45,8 @@
         <div class="customise-pwd">
           <form id="customise-pwd-form">
             <div class="box-1">
-              <input type="number" name="pwd-length" id="pwd-length" /> Password
-              Length
+              <input type="number" name="pwd-length" id="pwd-length" />
+              Password Length
             </div>
             <div class="box-2">
               <input
@@ -39,6 +54,7 @@
                 name="alphabetic"
                 id="alphabetic"
                 class="check-box"
+                checked="checked"
               />
               Alphabetic
             </div>
@@ -48,6 +64,7 @@
                 name="alphanumeric"
                 id="alphanumeric"
                 class="check-box"
+                checked="checked"
               />
               Alphanumeric
             </div>
@@ -57,6 +74,7 @@
                 name="All Characters"
                 id="all-characters"
                 class="check-box"
+                checked="checked"
               />
               All Characters
             </div>
