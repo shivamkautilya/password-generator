@@ -140,18 +140,26 @@ function showPwdRating() {
     pwdRating.classList.remove("weak");
     pwdRating.classList.remove("fairly-strong");
     pwdRating.classList.add("very-strong");
-    // pwdGeneratedStyle.classList.add("very-strong");
+    pwdGeneratedStyle.classList.remove("fairly-strong-border");
+    pwdGeneratedStyle.classList.remove("weak-border");
+    pwdGeneratedStyle.classList.add("very-strong-border");
   } else if (digit >= 6) {
     pwdRating.textContent = "Fairly Strong Password";
     pwdRating.classList.remove("very-strong");
     pwdRating.classList.remove("weak");
     pwdRating.classList.add("fairly-strong");
+    pwdGeneratedStyle.classList.remove("very-strong-border");
+    pwdGeneratedStyle.classList.remove("weak-border");
+    pwdGeneratedStyle.classList.add("fairly-strong-border");
     // pwdGeneratedStyle.classList.replace("very-strong", "fairly-strong");
   } else if (digit < 6) {
     pwdRating.textContent = "Weak Password";
     pwdRating.classList.remove("very-strong");
     pwdRating.classList.remove("fairly-strong");
     pwdRating.classList.add("weak");
+    pwdGeneratedStyle.classList.remove("very-strong-border");
+    pwdGeneratedStyle.classList.remove("fairly-strong-border");
+    pwdGeneratedStyle.classList.add("weak-border");
     // pwdGeneratedStyle.classList.replace("fairly-strong", "weak");
   }
 }

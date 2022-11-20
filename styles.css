@@ -61,6 +61,7 @@ body {
   display: inline;
   border: none;
   border-bottom: 1px solid #ccc;
+
   font-size: 2.4em;
 }
 .very-strong {
@@ -71,6 +72,15 @@ body {
 }
 .weak {
   color: #ec3909;
+}
+.very-strong-border {
+  border-bottom: 2px solid #358234;
+}
+.fairly-strong-border {
+  border-bottom: 2px solid #e88f06;
+}
+.weak-border {
+  border-bottom: 2px solid #ec3909;
 }
 .icon-size {
   font-size: 26px;
