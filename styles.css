@@ -64,13 +64,13 @@ body {
   font-size: 2.4em;
 }
 .very-strong {
-  border-bottom: 2px solid #358234;
+  color: #358234;
 }
 .fairly-strong {
-  border-bottom: 2px solid #ede307;
+  color: #e88f06;
 }
 .weak {
-  border-bottom: 2px solid #ec3909;
+  color: #ec3909;
 }
 .icon-size {
   font-size: 26px;

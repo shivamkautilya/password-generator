@@ -137,12 +137,21 @@ function decreaseValue() {
 function showPwdRating() {
   if (digit >= 10) {
     pwdRating.textContent = "Very Strong Password";
+    pwdRating.classList.remove("weak");
+    pwdRating.classList.remove("fairly-strong");
+    pwdRating.classList.add("very-strong");
     // pwdGeneratedStyle.classList.add("very-strong");
   } else if (digit >= 6) {
     pwdRating.textContent = "Fairly Strong Password";
+    pwdRating.classList.remove("very-strong");
+    pwdRating.classList.remove("weak");
+    pwdRating.classList.add("fairly-strong");
     // pwdGeneratedStyle.classList.replace("very-strong", "fairly-strong");
   } else if (digit < 6) {
     pwdRating.textContent = "Weak Password";
+    pwdRating.classList.remove("very-strong");
+    pwdRating.classList.remove("fairly-strong");
+    pwdRating.classList.add("weak");
     // pwdGeneratedStyle.classList.replace("fairly-strong", "weak");
   }
 }
