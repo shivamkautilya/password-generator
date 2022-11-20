@@ -123,7 +123,33 @@ let pwdOutput;
 //Default Values when reloaded
 pwdGenerated.value = passwordGenerator(allKeyWords, digit);
 pwdLength.value = 8;
+//function to check pwd-type
+function checkPwdType() {
+  if (alphabetic.checked) {
+    return alphabetKeyWords;
+  } else if (alphanumeric.checked) {
+    return alphaNumericKeyWords;
+  } else if (numeric.checked) {
+    return numericKeyWords;
+  } else if (allCharacters.checked) {
+    return allKeyWords;
+  }
+}
+//PWD Length
+function increaseValue() {
+  var value = parseInt(pwdLength.value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  pwdLength.value = value;
+}
 
+function decreaseValue() {
+  var value = parseInt(pwdLength.value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? (value = 1) : "";
+  value--;
+  pwdLength.value = value;
+}
 //Onclick Events
 //password length onchange function
 function pwdLengthChange() {
@@ -132,18 +158,16 @@ function pwdLengthChange() {
     "Pwd Length Value is changed.",
     `Password Length = ${pwdLength.value}`
   );
-  pwdGenerated.value = passwordGenerator(alphabetKeyWords, digit);
+  pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
 }
 alphabetic.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(alphabetKeyWords, digit);
-    console.log(pwdOutput);
   }
 });
 numeric.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(numericKeyWords, digit);
-    console.log(pwdOutput);
   }
 });
 alphanumeric.addEventListener("change", function () {
@@ -152,12 +176,10 @@ alphanumeric.addEventListener("change", function () {
       alphaNumericKeyWords,
       digit
     );
-    console.log(pwdOutput);
   }
 });
 allCharacters.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(allKeyWords, digit);
-    console.log(pwdOutput);
   }
 });
