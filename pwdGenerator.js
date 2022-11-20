@@ -1,3 +1,4 @@
+"use strict";
 const pwdKeywords = {
   capitalAlphabets: [
     "A",
@@ -74,7 +75,7 @@ const alphaNumericKeyWords = [...alphabetKeyWords, ...pwdKeywords.numbers];
 
 //FUNCTIONS
 //Generate random number between given password digit limit.
-let digit = 8;
+let digit = 10;
 digit = parseInt(digit);
 function randomDigit(keywordsLength) {
   return Math.trunc(Math.random() * keywordsLength);
@@ -99,10 +100,12 @@ const allCharacters = document.getElementById("all-characters");
 const increasePwdLength = document.getElementById("increase");
 const resetPassword = document.getElementById("reset-pwd");
 const copyToClipboard = document.getElementById("copy");
+const pwdRating = document.querySelector(".pwd-rating");
 let pwdOutput;
+const pwdGeneratedStyle = document.querySelector(".generated-pwd-style");
 //Default Values when reloaded
 pwdGenerated.value = passwordGenerator(allKeyWords, digit);
-pwdLength.value = 8;
+pwdLength.value = parseInt(digit);
 //function to check pwd-type
 function checkPwdType() {
   if (alphabetic.checked) {
@@ -120,7 +123,7 @@ function increaseValue() {
   var value = parseInt(pwdLength.value, 10);
   value = isNaN(value) ? 0 : value;
   value++;
-  pwdLength.value = value;
+  pwdLength.value = parseInt(value);
 }
 
 function decreaseValue() {
@@ -128,12 +131,27 @@ function decreaseValue() {
   value = isNaN(value) ? 0 : value;
   value < 1 ? (value = 1) : "";
   value--;
-  pwdLength.value = value;
+  pwdLength.value = parseInt(value);
 }
+// to give pwd-rating
+function showPwdRating() {
+  if (digit >= 10) {
+    pwdRating.textContent = "Very Strong Password";
+    // pwdGeneratedStyle.classList.add("very-strong");
+  } else if (digit >= 6) {
+    pwdRating.textContent = "Fairly Strong Password";
+    // pwdGeneratedStyle.classList.replace("very-strong", "fairly-strong");
+  } else if (digit < 6) {
+    pwdRating.textContent = "Weak Password";
+    // pwdGeneratedStyle.classList.replace("fairly-strong", "weak");
+  }
+}
+
 //Onclick Events
 //reset password
 resetPassword.addEventListener("click", function () {
   pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
+  console.log(showPwdRating());
 });
 //copy to clipboard
 copyToClipboard.addEventListener("click", function () {
@@ -151,6 +169,7 @@ pwdLength.addEventListener("keypress", function (event) {
     event.preventDefault();
     digit = parseInt(pwdLength.value);
     pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
+    showPwdRating();
   }
 });
 //password length onchange function
@@ -161,15 +180,18 @@ function pwdLengthChange() {
     `Password Length = ${pwdLength.value}`
   );
   pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
+  showPwdRating();
 }
 alphabetic.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(alphabetKeyWords, digit);
+    showPwdRating();
   }
 });
 numeric.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(numericKeyWords, digit);
+    showPwdRating();
   }
 });
 alphanumeric.addEventListener("change", function () {
@@ -178,10 +200,12 @@ alphanumeric.addEventListener("change", function () {
       alphaNumericKeyWords,
       digit
     );
+    showPwdRating();
   }
 });
 allCharacters.addEventListener("change", function () {
   if (this.checked) {
     pwdOutput = pwdGenerated.value = passwordGenerator(allKeyWords, digit);
+    showPwdRating();
   }
 });

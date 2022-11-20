@@ -7,6 +7,9 @@ body {
   box-sizing: border-box;
   line-height: 1;
   font-size: 10px;
+  color: #353434;
+  background-color: #fff;
+  font-family: "Nunito", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -30,7 +33,11 @@ body {
 
 .choosePasswordBox {
 }
-
+.website-heading {
+  text-align: center;
+  font-size: 3.6em;
+  font-family: "Bree Serif", serif;
+}
 #customise-pwd-form {
   display: flex;
   flex-direction: row;
@@ -38,6 +45,9 @@ body {
   justify-content: space-around;
   align-items: center;
   font-size: 2em;
+}
+.pwd-rating {
+  font-size: 1.6em;
 }
 .check-box {
   transform: scale(1.9);
@@ -52,7 +62,15 @@ body {
   border: none;
   border-bottom: 1px solid #ccc;
   font-size: 2.4em;
-  font-family: "Nunito", sans-serif;
+}
+.very-strong {
+  border-bottom: 2px solid #358234;
+}
+.fairly-strong {
+  border-bottom: 2px solid #ede307;
+}
+.weak {
+  border-bottom: 2px solid #ec3909;
 }
 .icon-size {
   font-size: 26px;
