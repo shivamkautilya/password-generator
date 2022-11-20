@@ -45,33 +45,58 @@
         <div class="customise-pwd">
           <form id="customise-pwd-form">
             <div class="box-1">
-              <input type="number" name="pwd-length" id="pwd-length" />
-              Password Length
+              <label for="pwd-length"> Password Length</label>
+              <select id="pwd-length" onchange="pwdLengthChange()">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+              </select>
             </div>
             <div class="box-2">
               <input
-                type="checkbox"
-                name="alphabetic"
+                type="radio"
+                name="pwd-type"
                 id="alphabetic"
                 class="check-box"
-                checked="checked"
               />
               Alphabetic
             </div>
             <div class="box-3">
               <input
-                type="checkbox"
-                name="alphanumeric"
+                type="radio"
+                name="pwd-type"
+                id="numeric"
+                class="check-box"
+              />
+              Numeric
+            </div>
+            <div class="box-3">
+              <input
+                type="radio"
+                name="pwd-type"
                 id="alphanumeric"
                 class="check-box"
-                checked="checked"
               />
               Alphanumeric
             </div>
             <div class="box-4">
               <input
-                type="checkbox"
-                name="All Characters"
+                type="radio"
+                name="pwd-type"
                 id="all-characters"
                 class="check-box"
                 checked="checked"
@@ -82,5 +107,6 @@
         </div>
       </div>
     </div>
+    <script src="/pwdGenerator.js"></script>
   </body>
 </html>
