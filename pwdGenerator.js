@@ -59,21 +59,18 @@ const pwdKeywords = {
   numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
   symbols: ["!", "@", "#", "$", "&", "?"],
 };
-const allKeyWords = shuffle([
+const allKeyWords = [
   ...pwdKeywords.capitalAlphabets,
   ...pwdKeywords.smallAlphabets,
   ...pwdKeywords.numbers,
   ...pwdKeywords.symbols,
-]);
+];
 const alphabetKeyWords = [
   ...pwdKeywords.capitalAlphabets,
   ...pwdKeywords.smallAlphabets,
 ];
 const numericKeyWords = [...pwdKeywords.numbers];
-const alphaNumericKeyWords = shuffle([
-  ...alphabetKeyWords,
-  ...pwdKeywords.numbers,
-]);
+const alphaNumericKeyWords = [...alphabetKeyWords, ...pwdKeywords.numbers];
 
 //FUNCTIONS
 //Generate random number between given password digit limit.
@@ -91,26 +88,6 @@ function passwordGenerator(whichKeyWords, passwordLength) {
   }
   return pwdGenerated.join("");
 }
-//shuffle keywords function
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
 
 //DOM MANIPULATION
 const pwdGenerated = document.getElementById("generated-pwd");
@@ -119,6 +96,7 @@ const alphabetic = document.getElementById("alphabetic");
 const numeric = document.getElementById("numeric");
 const alphanumeric = document.getElementById("alphanumeric");
 const allCharacters = document.getElementById("all-characters");
+const increasePwdLength = document.getElementById("increase");
 let pwdOutput;
 //Default Values when reloaded
 pwdGenerated.value = passwordGenerator(allKeyWords, digit);
@@ -151,6 +129,14 @@ function decreaseValue() {
   pwdLength.value = value;
 }
 //Onclick Events
+//Password length when enter key pressed
+pwdLength.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    digit = parseInt(pwdLength.value);
+    pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
+  }
+});
 //password length onchange function
 function pwdLengthChange() {
   digit = parseInt(pwdLength.value);
