@@ -97,6 +97,8 @@ const numeric = document.getElementById("numeric");
 const alphanumeric = document.getElementById("alphanumeric");
 const allCharacters = document.getElementById("all-characters");
 const increasePwdLength = document.getElementById("increase");
+const resetPassword = document.getElementById("reset-pwd");
+const copyToClipboard = document.getElementById("copy");
 let pwdOutput;
 //Default Values when reloaded
 pwdGenerated.value = passwordGenerator(allKeyWords, digit);
@@ -129,6 +131,20 @@ function decreaseValue() {
   pwdLength.value = value;
 }
 //Onclick Events
+//reset password
+resetPassword.addEventListener("click", function () {
+  pwdGenerated.value = passwordGenerator(checkPwdType(), digit);
+});
+//copy to clipboard
+copyToClipboard.addEventListener("click", function () {
+  {
+    var copyText = pwdGenerated;
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    // console.log("Copied the text: " + copyText.value);
+  }
+});
 //Password length when enter key pressed
 pwdLength.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {

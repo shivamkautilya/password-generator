@@ -15,13 +15,11 @@ body {
   width: 60vw;
   /* height: 50vh; */
   margin: 5% auto;
-  border: 2px solid #000;
 }
 
 .common-box {
   width: 95%;
 
-  border: 2px solid #000;
   margin: 0 auto;
   padding: 10px;
 }
@@ -41,18 +39,13 @@ body {
   align-items: center;
   font-size: 2em;
 }
-.generated-pwd-button {
-  background: rgba(255, 255, 255, 0);
-  border: none;
-  display: inline;
-}
 .check-box {
   transform: scale(1.9);
   margin-right: 1em;
   display: inline-block;
 }
 .generated-pwd-style {
-  width: 80%;
+  width: 90%;
   padding: 5px 10px;
   margin: 8px 0;
   display: inline;
@@ -61,7 +54,9 @@ body {
   font-size: 2.4em;
   font-family: "Nunito", sans-serif;
 }
-
+.icon-size {
+  font-size: 26px;
+}
 .choosePasswordBox h2 {
   font-family: "Bree Serif", serif;
   font-size: 3.2em;
@@ -85,12 +80,25 @@ body {
     font-size: 8px;
   }
   .container {
-    width: 90vw;
+    width: 99vw;
   }
   #customise-pwd-form {
     flex-direction: column;
     gap: 0.6em;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+  .generated-pwd-style {
+    width: 80%;
+    font-size: 1.8em;
+  }
+  .icon-size {
+    font-size: 2em;
+  }
+  .common-box {
+    width: 98%;
+  }
+  .choosePasswordBox h2 {
+    font-size: 2.4em;
   }
 }
